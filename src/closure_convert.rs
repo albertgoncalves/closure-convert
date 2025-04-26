@@ -34,7 +34,7 @@ impl<'a> State<'a> {
         }
     }
 
-    fn get_k(&mut self) -> usize {
+    const fn get_k(&mut self) -> usize {
         let k = self.k;
         self.k += 1;
         k
@@ -56,7 +56,7 @@ impl<'a> ClosureConvert<'a> for ast::Call<'a> {
                 global = true;
             }
             _ => (),
-        };
+        }
 
         self.0.closure_convert(state);
         for expr in &mut self.1 {
