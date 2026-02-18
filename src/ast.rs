@@ -19,9 +19,9 @@ pub enum Ident<'a> {
 pub enum Expr<'a> {
     Int(i64),
     Ident(Ident<'a>),
-    Array(Vec<Expr<'a>>),
-    Access(Box<Expr<'a>>, usize),
-    BinOp(Op, Box<(Expr<'a>, Expr<'a>)>),
+    Array(Vec<Self>),
+    Access(Box<Self>, usize),
+    BinOp(Op, Box<(Self, Self)>),
     Call(Box<Call<'a>>),
     Func(Func<'a>),
 }
